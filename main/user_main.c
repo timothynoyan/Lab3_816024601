@@ -56,9 +56,9 @@ void app_main(void){
 	xSemaphoreGive(mutex_v);
 	
 	/* UNIT TEST: LED On Function */
-	/* Stub for turning LED On */
+	/* Stub for turning LED Off */
 	gpio_set_level(GPIO_OUTPUT, 0);
-	/* Task to turn LED Off */
+	/* Task to turn LED On */
 	xTaskCreate(task1, "task1", 2048, NULL, 3, &task_handle);
 	/* Check if pin is high and use task handler to stop running task 1 */
 	if (gpio_get_level(GPIO_OUTPUT) == 1 && task_handle != NULL){
