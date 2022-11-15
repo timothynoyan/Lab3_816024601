@@ -1,0 +1,37 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2022.11.15 00:42:45 =~=~=~=~=~=~=~=~=~=~=~=
+
+ ets Jan  8 2013,rst cause:2, boot mode:(3,7)
+
+load 0x40100000, len 7032, room 16 
+tail 8
+chksum 0x94
+load 0x3ffe8408, len 24, room 0 
+tail 8
+chksum 0x2d
+load 0x3ffe8420, len 3328, room 0 
+tail 0
+chksum 0x5d
+csum 0x5d
+[0;32mI (42) boot: ESP-IDF v3.4-49-g0f200b46-dirty 2nd stage bootloader[0m
+[0;32mI (43) boot: compile time 17:22:17[0m
+[0;32mI (43) boot: SPI Speed      : 40MHz[0m
+[0;32mI (50) boot: SPI Mode       : DIO[0m
+[0;32mI (56) boot: SPI Flash Size : 1MB[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (68) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (90) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (102) boot:  2 factory          factory app      00 00 00010000 000f0000[0m
+[0;32mI (113) boot: End of partition table[0m
+[0;32mI (120) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e40 ( 89664) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0x00025e58 vaddr=0x40225e50 size=0x05954 ( 22868) map[0m
+[0;32mI (181) esp_image: segment 2: paddr=0x0002b7b4 vaddr=0x3ffe8000 size=0x003dc (   988) load[0m
+[0;32mI (182) esp_image: segment 3: paddr=0x0002bb98 vaddr=0x40100000 size=0x00080 (   128) load[0m
+[0;32mI (196) esp_image: segment 4: paddr=0x0002bc20 vaddr=0x40100080 size=0x04558 ( 17752) load[0m
+[0;32mI (216) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (240) main: LED is turning on...
+[0m
+[0;32mI (741) main: Task 1 is complete.
+[0m
+[0;32mI (742) main: UNIT TEST: task1 was successful[0m
