@@ -55,18 +55,17 @@ void app_main(void){
 	/* Give back Mutex */
 	xSemaphoreGive(mutex_v);
 	
-	/* UNIT TEST: LED On Function */
+	/* UNIT TEST: Status Message Function */
 	/* Stub for turning LED On */
-	gpio_set_level(GPIO_OUTPUT, 0);
-	/* Task to turn LED Off */
-	xTaskCreate(task1, "task1", 2048, NULL, 3, &task_handle);
-	/* Check if pin is high and use task handler to stop running task 1 */
-	if (gpio_get_level(GPIO_OUTPUT) == 1 && task_handle != NULL){
-		ESP_LOGI(TAG, "UNIT TEST: task1 was successful");
-		vTaskSuspend(task_handle);
+	gpio_set_level(GPIO_OUTPUT, 1);
+	/* Task to call status message function */
+	xTaskCreate(task3, "task3", 2048, NULL, 3, &task_handle);
+	/* Using task handler to delete running task */
+	if (task_handle != NULL){
+		vTaskDelete(task_handle);
 	}
-	/* Stub for turning LED Off */
 	gpio_set_level(GPIO_OUTPUT, 0);
+	ESP_LOGI(TAG, "UNIT TEST: task3 was successful\n");
 }
 	
 void task1(void *pvParam){
