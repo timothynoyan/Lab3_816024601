@@ -29,8 +29,6 @@ static const char *TAG = "main";
 /* Declaring variable type of SemaphoreHandle_t */
 SemaphoreHandle_t mutex_v = NULL;
 
-TaskHandle_t task_handle = NULL;
-
 void app_main(void){	
 	/* Struct for configuring pins */
 	gpio_config_t io_conf;
@@ -52,20 +50,13 @@ void app_main(void){
 	/* Creating mutex */
 	mutex_v = xSemaphoreCreateMutex();
 	
-	/* Give back Mutex */
-	xSemaphoreGive(mutex_v);
-	
-	/* UNIT TEST: Status Message Function */
-	/* Stub for turning LED On */
-	gpio_set_level(GPIO_OUTPUT, 1);
-	/* Task to call status message function */
-	xTaskCreate(task3, "task3", 2048, NULL, 3, &task_handle);
-	/* Using task handler to delete running task */
-	if (task_handle != NULL){
-		vTaskDelete(task_handle);
-	}
-	gpio_set_level(GPIO_OUTPUT, 0);
-	ESP_LOGI(TAG, "UNIT TEST: task3 was successful\n");
+	/* Integration and Verification Testing */
+	/* Creating task to turn on LED */
+	xTaskCreate(task1, "task1", 2048, NULL, 3, NULL);
+	/* Creating task to turn off LED */
+	xTaskCreate(task2, "task2", 2048, NULL, 2, NULL);
+	/* Creating task to display status message */
+	xTaskCreate(task3, "task3", 2048, NULL, 1, NULL);
 }
 	
 void task1(void *pvParam){
